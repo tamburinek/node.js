@@ -17,6 +17,9 @@ Program nejprve přečte obsah souboru "instrukce.txt", ve kterém bude číslo 
 ## Čtvrtý úkol - Zpracování HTTP požadavků
 Tento úkol se zabývá vytvořením serveru v Node.js, který zpracovává HTTP požadavky ze strany prohlížeče. Server bude reagovat na tři různé typy požadavků: zvýšení, snížení a čtení čísla uloženého v souboru counter.txt. Při zavolání přes cestu /increase a /decrease server zvýší nebo sníží o jedničku hodnotu čísla uloženého v souboru counter.txt. Pokud soubor neexistuje, server ho vytvoří a nastaví hodnotu na 0. Při zavolání serveru přes cestu /read server vrátí prohlížeči číslo uložené v souboru counter.txt.
 
+## Pátý úkol - Detail todočka
+Tato stránka se bude nacházet pod URL /todo/:id a na stránce bude vidět titulek todočka a zda je hotové či ne. Dále zde budou odkazy na změnu stavu todočka, odstránění todočka a formulář na změnu titulku todočka. Na tuto stránku se dostanete kliknutím na titulek todočka na hlavní stránce se seznamem všech todoček.
+
 ## Upozornění
 - Ujistěte se, že soubor `instrukce.txt` nebo `vstup.txt` existují v adresáři projektu. Pokud neexistují, program o tom informuje uživatele.
 - Pokud cílový soubor neexistuje, program ho nejprve vytvoří a poté do něj nakopíruje data.

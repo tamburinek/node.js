@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= todo.title %></title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+
+    p {
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    form {
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      width: calc(100% - 100px);
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+<h1><%= todo.title %></h1>
+
+<p>Status: <%= todo.done ? 'Hotovo' : 'Není hotovo' %></p>
+
+<form method="post" action="/toggle-todo/<%= todo.id %>">
+  <button type="submit">Změnit stav</button>
+</form>
+
+<form method="get" action="/remove-todo/<%= todo.id %>">
+  <button type="submit">Odstranit todočko</button>
+</form>
+
+<form method="post" action="/edit-todo/<%= todo.id %>">
+  <input
+    placeholder="Nový název todočka"
+    name="title">
+  <button type="submit">Upravit název</button>
+</form>
+
+<a href="/">
+  <button type="button">Zpět</button>
+</a>
+
+</div>
+
+</body>
+</html>
