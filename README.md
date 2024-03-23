@@ -20,6 +20,21 @@ Tento úkol se zabývá vytvořením serveru v Node.js, který zpracovává HTTP
 ## Pátý úkol - Detail todočka
 Tato stránka se bude nacházet pod URL /todo/:id a na stránce bude vidět titulek todočka a zda je hotové či ne. Dále zde budou odkazy na změnu stavu todočka, odstránění todočka a formulář na změnu titulku todočka. Na tuto stránku se dostanete kliknutím na titulek todočka na hlavní stránce se seznamem všech todoček.
 
+# Úkol 6: Přidání priority k úkolům
+
+V tomto úkolu jsem přidal úroveň priority ke každému úkolu. Priorita mohla být 'NÍZKÁ', 'STŘEDNÍ' nebo 'VYSOKÁ'. 
+
+## Kroky, které jsem provedl:
+
+1. Aktualizoval jsem schéma databáze, aby zahrnovalo nový sloupec pro prioritu. Použil jsem metodu `enu` v Knexu k vytvoření sloupce s výčtovými hodnotami.
+
+2. Aktualizoval jsem formulář v `index.ejs`, aby zahrnoval rozevírací seznam pro prioritu. Seznam má tři možnosti: 'NÍZKÁ', 'STŘEDNÍ' a 'VYSOKÁ'.
+
+3. Aktualizoval jsem serverový kód, aby zvládal novou hodnotu priority, když byl úkol vytvořen nebo aktualizován.
+
+4. Aktualizoval jsem stránku úkolu v `todo.ejs`, aby zobrazovala prioritu úkolu. Použil jsem různé barvy k reprezentaci různých úrovní priority.
+
+
 ## Upozornění
 - Ujistěte se, že soubor `instrukce.txt` nebo `vstup.txt` existují v adresáři projektu. Pokud neexistují, program o tom informuje uživatele.
 - Pokud cílový soubor neexistuje, program ho nejprve vytvoří a poté do něj nakopíruje data.
