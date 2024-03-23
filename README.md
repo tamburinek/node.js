@@ -20,7 +20,7 @@ Tento úkol se zabývá vytvořením serveru v Node.js, který zpracovává HTTP
 ## Pátý úkol - Detail todočka
 Tato stránka se bude nacházet pod URL /todo/:id a na stránce bude vidět titulek todočka a zda je hotové či ne. Dále zde budou odkazy na změnu stavu todočka, odstránění todočka a formulář na změnu titulku todočka. Na tuto stránku se dostanete kliknutím na titulek todočka na hlavní stránce se seznamem všech todoček.
 
-# Úkol 6: Přidání priority k úkolům
+## Šestý úkol - Přidání priority k úkolům
 
 V tomto úkolu jsem přidal úroveň priority ke každému úkolu. Priorita mohla být 'NÍZKÁ', 'STŘEDNÍ' nebo 'VYSOKÁ'. 
 
