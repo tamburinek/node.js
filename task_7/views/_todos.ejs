@@ -1,0 +1,34 @@
+<ul>
+<% for (const todo of todos) { %>
+  <li>
+    <div>
+      <div>
+        Popis:
+        <a href="/todo/<%= todo.id %>">
+          <%= todo.title %>
+        </a>
+      </div>
+      <div>
+        Priorita:
+        <span class="<%= 'priority-' + todo.priority.toLowerCase() %>">
+          <% if (todo.priority === 'low') { %>
+            Nízká
+          <% } else if (todo.priority === 'normal') { %>
+            Střední
+          <% } else if (todo.priority === 'high') { %>
+            Vysoká
+          <% } %>
+        </span>
+      </div>
+    </div>
+    <div class="center-content">
+      <a href="/toggle-todo/<%= todo.id %>">
+        <%= todo.done ? 'Hotovo' : 'Není hotovo' %>
+      </a>
+     <a class="remove" href="/remove-todo/<%= todo.id %>">
+        odebrat
+     </a>
+    </div>
+  </li>
+<% } %>
+</ul>

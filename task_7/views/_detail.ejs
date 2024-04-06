@@ -1,0 +1,45 @@
+<div class="container">
+
+    <h1><%= todo.title %></h1>
+    
+    <p>Status: <%= todo.done ? 'Hotovo' : 'Není hotovo' %></p>
+    
+    <p>Priorita: 
+      <span class="<%= 'priority-' + todo.priority.toLowerCase() %>">
+        <% if (todo.priority === 'low') { %>
+          Nízká
+        <% } else if (todo.priority === 'normal') { %>
+          Střední
+        <% } else if (todo.priority === 'high') { %>
+          Vysoká
+        <% } %>
+      </span>
+    </p>
+    
+    <div class="upravy">
+      <form method="get" action="/toggle-todo/<%= todo.id %>">
+        <button type="submit">Změnit stav</button>
+      </form>
+    
+      <form class="remove-todo" method="get" action="/remove-todo/<%= todo.id %>">
+        <button type="submit">Odstranit todočko</button>
+      </form>
+    </div>
+    
+    <form method="post" action="/update-todo/<%= todo.id %>">
+      <input
+        placeholder="Nový název todočka"
+        value="<%= todo.title %>"
+        name="title"
+        type="text">
+        <select name="priority" required>
+          <option value="low" <%= todo.priority === 'low' ? 'selected' : '' %>>Nízká</option>
+          <option value="normal" <%= todo.priority === 'normal' ? 'selected' : '' %>>Střední</option>
+          <option value="high" <%= todo.priority === 'high' ? 'selected' : '' %>>Vysoká</option>
+        </select>
+      <button type="submit">Upravit todočko</button>
+    </form>
+    <a href="/">
+        <button type="button">Zpět</button>
+    </a>
+</div>

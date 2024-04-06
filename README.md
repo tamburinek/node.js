@@ -28,6 +28,22 @@ Tato stránka se bude nacházet pod URL /todo/:id a na stránce bude vidět titu
 
 V tomto úkolu jsem přidal úroveň priority ke každému úkolu. Priorita mohla být 'NÍZKÁ', 'STŘEDNÍ' nebo 'VYSOKÁ'. 
 
+## Sedmý úkol - Odesílání todoček a jejich detailů přes websockety
+
+V tomto úkolu jsem implementoval odesílání seznamu todoček a detailů todoček přes websockety. Toto umožňuje automatické aktualizace na stránce bez nutnosti obnovování stránky.
+
+### Kroky, které jsem provedl:
+
+1. Nastavil jsem WebSocket server pomocí knihovny `ws`.
+
+2. Upravil jsem všechny vhodné route handlery tak, aby odesílaly aktualizovaný seznam todoček přes WebSocket po každé změně.
+
+3. Implementoval jsem odesílání detailů todočka přes WebSocket vždy, když došlo ke změně todočka.
+
+4. Přidal jsem kód do `index.ejs` a `todo.ejs`, který zpracovává příchozí WebSocket zprávy a aktualizuje stránku podle přijatých dat.
+
+5. Jako bonus jsem implementoval odesílání speciální zprávy přes WebSocket, když je todočko smazáno. Pokud je tato zpráva přijata na stránce s detailem smazaného todočka, zobrazí se uživateli hláška, že todočko bylo smazáno.
+
 ## Kroky, které jsem provedl:
 
 1. Aktualizoval jsem schéma databáze, aby zahrnovalo nový sloupec pro prioritu. Použil jsem metodu `enu` v Knexu k vytvoření sloupce s výčtovými hodnotami.
