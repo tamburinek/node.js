@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    #todoList {
+      margin-bottom: 20px;
+    }
+    form {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    input {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #007BFF;
+      color: #fff;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    a {
+      display: inline-block;
+      margin: 5px;
+      padding: 10px 20px;
+      text-decoration: none;
+      color: #fff;
+      background-color: #007BFF;
+      border-radius: 5px;
+    }
+    a:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <% if (locals.user) { %>
+    <h1><%= title %></h1>
+    <h2>Uživatel: <%= user.name %></h2>
+    <div id="todoList">
+      <%- include('_todos') %>
+    </div>
+  
+    <form method="post" action="/add-todo">
+      <input placeholder="Název todočka" name="title">
+      <button type="submit">Přidat</button>
+    </form>
+    <br><br>
+    <button id="logoutButton" onclick="logout()">Odhlásit se</button>
+    <script>
+      function logout() {
+        window.location.href = "/logout";
+      }
+    </script>
+  <% } else { %>
+    <a href="/login">Přihlásit se</a>
+    <a href="/register">Registrovat se</a>
+  <% } %>
+
+  <script>
+    const ws = new WebSocket('ws://localhost:3000')
+
+    ws.addEventListener('message', (ev) => {
+      const data = JSON.parse(ev.data)
+
+      if (data.type === 'todoList') {
+        const el = document.getElementById('todoList')
+        el.innerHTML = data.html
+      }
+    })
+  </script>
+
+</body>
+</html>
