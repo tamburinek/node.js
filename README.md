@@ -28,6 +28,16 @@ Tato stránka se bude nacházet pod URL /todo/:id a na stránce bude vidět titu
 
 V tomto úkolu jsem přidal úroveň priority ke každému úkolu. Priorita mohla být 'NÍZKÁ', 'STŘEDNÍ' nebo 'VYSOKÁ'. 
 
+### Kroky, které jsem provedl:
+
+1. Aktualizoval jsem schéma databáze, aby zahrnovalo nový sloupec pro prioritu. Použil jsem metodu `enu` v Knexu k vytvoření sloupce s výčtovými hodnotami.
+
+2. Aktualizoval jsem formulář v `index.ejs`, aby zahrnoval rozevírací seznam pro prioritu. Seznam má tři možnosti: 'NÍZKÁ', 'STŘEDNÍ' a 'VYSOKÁ'.
+
+3. Aktualizoval jsem serverový kód, aby zvládal novou hodnotu priority, když byl úkol vytvořen nebo aktualizován.
+
+4. Aktualizoval jsem stránku úkolu v `todo.ejs`, aby zobrazovala prioritu úkolu. Použil jsem různé barvy k reprezentaci různých úrovní priority.
+
 ## Sedmý úkol - Odesílání todoček a jejich detailů přes websockety
 
 V tomto úkolu jsem implementoval odesílání seznamu todoček a detailů todoček přes websockety. Toto umožňuje automatické aktualizace na stránce bez nutnosti obnovování stránky.
@@ -44,14 +54,14 @@ V tomto úkolu jsem implementoval odesílání seznamu todoček a detailů todo�
 
 5. Jako bonus jsem implementoval odesílání speciální zprávy přes WebSocket, když je todočko smazáno. Pokud je tato zpráva přijata na stránce s detailem smazaného todočka, zobrazí se uživateli hláška, že todočko bylo smazáno.
 
-## Kroky, které jsem provedl:
 
-1. Aktualizoval jsem schéma databáze, aby zahrnovalo nový sloupec pro prioritu. Použil jsem metodu `enu` v Knexu k vytvoření sloupce s výčtovými hodnotami.
+## Devátý úkol - Login a registrace
+V tomto úkolu jsem implementoval funkce pro přihlášení a registraci uživatelů.
 
-2. Aktualizoval jsem formulář v `index.ejs`, aby zahrnoval rozevírací seznam pro prioritu. Seznam má tři možnosti: 'NÍZKÁ', 'STŘEDNÍ' a 'VYSOKÁ'.
-
-3. Aktualizoval jsem serverový kód, aby zvládal novou hodnotu priority, když byl úkol vytvořen nebo aktualizován.
-
-4. Aktualizoval jsem stránku úkolu v `todo.ejs`, aby zobrazovala prioritu úkolu. Použil jsem různé barvy k reprezentaci různých úrovní priority.
-
-
+Vytvořil jsem formulář pro přihlášení, který obsahuje pole pro zadání uživatelského jména a hesla.
+Implementoval jsem serverovou logiku pro přihlášení, která ověřuje, zda zadané uživatelské jméno a heslo odpovídají uloženým údajům v databázi.
+Pokud je přihlášení úspěšné, uživatel je přesměrován na domovskou stránku.
+Vytvořil jsem formulář pro registraci, který obsahuje pole pro zadání uživatelského jména, hesla a potvrzení hesla.
+Implementoval jsem serverovou logiku pro registraci, která kontroluje, zda zadané údaje jsou platné a nejsou již registrované v databázi.
+Pokud je registrace úspěšná, uživatel je přesměrován na stránku pro přihlášení.
+Přidal jsem možnost odhlášení uživatele, která zruší aktuální relaci a přesměruje uživatele na stránku pro přihlášení.
